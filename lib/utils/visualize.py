@@ -106,9 +106,9 @@ def visualize(img, det_boxes=None, gt_boxes=None, keypoints=None, is_show_label=
 
     if return_img:
         return im.copy()
-
     cv2.imshow(name, im)
     cv2.waitKey(0)
+    
     # while True:
     #     c = cv2.waitKey(0)
     #     if c == ord('d'):
