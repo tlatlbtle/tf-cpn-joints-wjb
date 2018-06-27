@@ -129,7 +129,7 @@ class Network(ModelDesc):
                 global_loss += tf.reduce_mean(tf.square(global_out - global_label)) / len(labels)
                 joint_heatmap_gt= tf.reduce_sum(label, 3)
                 joint_heatmap= tf.reduce_sum(global_out, 3)
-                print(joint_heatmap_gt.shape,joint_heatmap.shape)
+#                 print(joint_heatmap_gt.shape,joint_heatmap.shape)
                 joints_loss+=tf.reduce_mean(tf.square(joint_heatmap_gt - joint_heatmap)) / len(labels)
             global_loss /= 2.
             joints_loss /= 2.

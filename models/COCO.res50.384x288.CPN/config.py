@@ -37,16 +37,16 @@ class Config:
 
     gpu_ids = '0'
     nr_gpus = 1
-    continue_train = False
+    continue_train = True
 
     def get_lr(self, itr):
         lr = self.lr * self.lr_gamma ** (itr // self.step_size)
         return lr
 
-    def set_args(self, gpu_ids, continue_train=False):
+    def set_args(self, gpu_ids, continue_train):
         self.gpu_ids = gpu_ids
         self.nr_gpus = len(self.gpu_ids.split(','))
-        self.continue_train = continue_train
+#         self.continue_train = continue_train
         os.environ["CUDA_VISIBLE_DEVICES"] = self.gpu_ids
         print('>>> Using /gpu:{}'.format(self.gpu_ids))
 
